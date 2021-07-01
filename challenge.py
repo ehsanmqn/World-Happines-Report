@@ -9,6 +9,10 @@ from analysis import extract_yearly_variations_of_happiness, generate_data_heat_
     plot_factor_responsibility_for_happiness_rate_over_years, plot_factor_responsibility_for_happiness_region
 
 
+# Initialize jinja
+env = Environment(loader=FileSystemLoader('.'))
+template = env.get_template("templates/report.html")
+
 # Read old and 2021 data
 df_old = read_and_prepare_old_data()
 df_2021 = read_and_prepare_2021_data_with_region_indicator()
@@ -61,5 +65,10 @@ plot_factor_responsibility_for_happiness_rate_over_years(df)
 # Let's calculate the each factor responsibility for the rates of happiness for each region
 plot_factor_responsibility_for_happiness_region(df)
 
+# Generate PDF report from variation of happiness over years
+template_vars = {"title" : "Happiness report",
+                 "interested_data": interested_data.to_html()}
+html_out = template.render(template_vars)
+HTML(string=html_out).write_pdf("report.pdf")
 
 
