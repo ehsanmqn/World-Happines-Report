@@ -1,5 +1,5 @@
 # BOS Challenge
-This project contains a simple python application designed as a response to BOS interview challenge
+This project contains a simple data scientific python application designed to provide analytics charts from yearly world happines report. This project is a part of BOS challenge.
 
 ## Contents
 1. Install requirements
@@ -21,11 +21,9 @@ python challenge.py
 ```
 
 #### What kind of reports generate
-The project read data provided in [Dataset](Datasets) folder. After reading each file, it perform some preprocessing on data 
-in order to make them proper for further processing. After preparing each bunch of data, they will merge to each other to 
-provide a single World Happiness data.
+The project read data provided in [Dataset](Datasets) folder. After reading each file, it performs some preprocessing on data in order to prepare the data for further processing. After preparing each bunch of data, they will merged together to retrieve World's Happiness charts.
 
-There are provided five functions in order to generate useful reports from prepared data.
+There are provided five functions in order to generate useful reports from the data.
 
 ##### 1. Heat map
 [generate_data_heat_map](analysis.py) to examine possible happiness factors co-relations. Based on this graph we decide which
